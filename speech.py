@@ -12,8 +12,8 @@ from playsound import playsound
 # p = vlc.MediaPlayer("file://abc.mp3")
 # # p.play()
 
-# google api key = AIzaSyAuOaIjo2G-hugN6uM_XnOcJyziy74TJQw
-# spotify api key = BQCj8czpQ-kszM3TN4zFYkvT_Euuh24HMG-t16P6_MT3m822TLjjE7DL-dyFfjAWzzXHHF-iBvvZwyZAnGyRcsw-QXApn_kEGT7sX568HHx182rwLHZ2FqikE6ndfKm9bU7i8bbnC6qWpHrM57Sf6UIX
+# google api key = 
+# spotify api key = 
 
 class speaker:
     def __init__(self):
