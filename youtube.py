@@ -6,7 +6,7 @@ import collections
 
 class Youtube_Player:
     def __init__(self, maximum=1, flag=False):
-        self.DEVELOPER_KEY = 'AIzaSyAuOaIjo2G-hugN6uM_XnOcJyziy74TJQw'
+        self.DEVELOPER_KEY = ''
         self.YOUTUBE_API_SERVICE_NAME = 'youtube'
         self.YOUTUBE_API_VERSION = 'v3'
         self.maximum = maximum
