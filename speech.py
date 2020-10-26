@@ -89,9 +89,6 @@ class speaker:
                     self.say("What is your question?")
                     self.delete()
                 ques = input("question : ")
-                if "cammy" in ques.lower():
-                    self.say("Cammy is a beautiful girl who is sammy's girlfriend.")
-                    self.delete()
             self.say("Question end")
             self.delete()
 
