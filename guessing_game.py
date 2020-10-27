@@ -41,18 +41,9 @@ class q_learning:
     def guess_number(self):
         with open('q_table.pickle', "rb") as file:
             self.q_table = pickle.load(file)
-
-        for episode in range(self.ROUND):
-            self.computer = number_game()
-            self.answer = number_game()
-
-            # for i in range(self.CHANCES):
-            #     obs = self.player - self.answer
-            #     choice = np.argmax(self.q_table[obs])
-            #
-            #     self.player.action(choice)
-            #
-            #     print(self.player.first_digit, self.answer.first_digit)
+            
+        self.computer = number_game()
+        self.answer = number_game()
 
 if __name__ == '__main__':
     q = q_learning()
