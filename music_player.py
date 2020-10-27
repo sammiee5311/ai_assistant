@@ -6,12 +6,12 @@ import json
 
 
 class Music_Player:
-    def __init__(self, tracks, maximum=1):
+    def __init__(self, playlist, maximum=1):
         self.instance = vlc.Instance('--verbose 0')
-        self.tracks = tracks
+        self.playlist = playlist
         self.maximum = maximum
-        self.cnt = 0
-        self.current_song = None
+        self.track_number = 0
+        self.current_music = None
 
     def play(self,url):
         self.player = self.instance.media_player_new()
@@ -25,32 +25,32 @@ class Music_Player:
         event_manager.event_attach(vlc.EventType.MediaPlayerEndReached, self.end_callback)
 
     def youtube_player(self):
-        self.cnt += 1
-        if self.cnt in self.tracks:
-            self.current_song = self.tracks[self.cnt][0][:-11]
-            track = self.tracks[self.cnt].pop()
-            while track[8:16] == 'manifest':
-                if self.cnt < len(self.tracks):
-                    self.cnt += 1
-                    self.current_song = self.tracks[self.cnt][0][:-11]
-                    track = self.tracks[self.cnt].pop()
+        self.track_number += 1
+        if self.track_number in self.playlist:
+            self.current_music = self.playlist[self.track_number][0][:-11]
+            music = self.playlist[self.track_number].pop()
+            while music[8:16] == 'manifest':
+                if self.track_number < len(self.playlist):
+                    self.track_number += 1
+                    self.current_music = self.playlist[self.track_number][0][:-11]
+                    music = self.playlist[self.track_number].pop()
 
-            self.play(track)
+            self.play(music)
 
     def end_callback(self, event):
-        currenttrackid = self.cnt
-        numtracks = len(self.tracks)
-        if currenttrackid <= numtracks and self.cnt - 1 < self.maximum:
+        current_track_number = self.track_number
+        playlist_size = len(self.playlist)
+        if current_track_number <= playlist_size and self.track_number - 1 < self.maximum:
             self.youtube_player()
 
     def next_song(self):
         self.youtube_player()
 
     def show_playlist(self):
-        print('1[C] %s' % self.current_song)
-        for i, song in enumerate(self.tracks.values()):
-            if len(song) == 2:
-                print('%d %s' % (i+1, song[0][:-11]))
+        print('%d[C] %s' % (self.track_number,self.current_music))
+        for i, music in enumerate(self.playlist.values()):
+            if len(music) == 2:
+                print('%d %s' % (i+1, music[0][:-11]))
 
     def set_vlc_volume(self, level):
         self.player.audio_set_volume(level)
@@ -79,6 +79,7 @@ class Music_Player:
 
     def state(self):
         return self.player.get_state()
+
 
 if __name__ == '__main__':
     YT = Youtube_Player()
