@@ -10,10 +10,6 @@ from youtube import Youtube_Player
 from guessing_game import q_learning
 #####################################
 
-
-# p = vlc.MediaPlayer("file://abc.mp3")
-# # p.play()
-
 # google api key = 
 # spotify api key = 
 
@@ -143,14 +139,11 @@ class speaker:
                     self.say("What is your question?")
                     self.delete()
                 ques = input("question : ")
-                if "cammy" in ques.lower():
-                    self.say("Cammy is a beautiful girl who is sammy's girlfriend.")
-                    self.delete()
             self.say("Question end")
             self.delete()
 
         elif text == 'morning':
-            self.say("Good morning ! How are you, sammy?")
+            self.say("Good morning ! How are you, sir?")
             self.delete()
 
     def delete(self):
