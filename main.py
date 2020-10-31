@@ -153,7 +153,7 @@ class speaker:
 
 if __name__ == '__main__':
     sp = speaker()
-    YT = Youtube_Player(maximum=3)
+    YT = Youtube_Player()
     start_q_table = {}
 
     while True:
