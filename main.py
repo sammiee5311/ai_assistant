@@ -10,9 +10,6 @@ from youtube import Youtube_Player
 from guessing_game import q_learning
 #####################################
 
-# google api key = 
-# spotify api key = 
-
 class speaker:
     def __init__(self):
         self.filename = "./tmp/a.mp3"
