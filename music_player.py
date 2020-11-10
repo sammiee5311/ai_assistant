@@ -83,7 +83,7 @@ class Music_Player:
 
 if __name__ == '__main__':
     YT = Youtube_Player()
-    tracks = YT.search('toosie')
+    tracks = YT.search('senorita')
 
     MP = Music_Player(tracks)
     MP.youtube_player()
