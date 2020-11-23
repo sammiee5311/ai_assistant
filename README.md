@@ -10,3 +10,6 @@ It is trained by reinforcement learning. (https://sammiee5311.github.io/q%20lear
 ### Play music on Youtube
 + create playlist & add music in playlist
 + change music
+
+## todo
++ detect face expression
