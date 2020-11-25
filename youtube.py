@@ -63,4 +63,4 @@ class Youtube_Player:
 
 if __name__ == '__main__':
     y = Youtube_Player()
-    y.search(query='sicko mode')
+    y.search(query='')
