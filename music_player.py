@@ -47,10 +47,10 @@ class Music_Player:
         self.youtube_player()
 
     def show_playlist(self):
-        print('%d[C] %s' % (self.track_number,self.current_music))
+        print('[C] %s' % self.current_music)
         for i, music in enumerate(self.playlist.values()):
             if len(music) == 2:
-                print('%d %s' % (i+1, music[0][:-11]))
+                print('%s' % music[0][:-11])
 
     def set_vlc_volume(self, level):
         self.player.audio_set_volume(level)
@@ -83,7 +83,7 @@ class Music_Player:
 
 if __name__ == '__main__':
     YT = Youtube_Player()
-    tracks = YT.search('senorita')
+    tracks = YT.search('')
 
     MP = Music_Player(tracks)
     MP.youtube_player()
