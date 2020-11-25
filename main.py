@@ -8,6 +8,7 @@ from playsound import playsound
 from music_player import Music_Player
 from youtube import Youtube_Player
 from guessing_game import q_learning
+from weather import Weather_Api
 #####################################
 
 class speaker:
@@ -73,6 +74,11 @@ class speaker:
             self.say("Music will be changed in a moment")
             self.delete()
             self.MP.next_song()
+            
+        elif text == 'weather':
+        current_weather = WA.get_current_weather()
+        self.say("Current weather is %s" % current_weather)
+        self.delete()
 
         elif text == 'play':
             self.say("We have one game on this AI speaker. Do you want you play with me? If you want to hear how to play, please write 'how to play'")
@@ -155,4 +161,6 @@ if __name__ == '__main__':
 
     while True:
         text = input("write command here\n")
+        if text.lower() == 'quit':
+            break
         sp.main(text.lower())
