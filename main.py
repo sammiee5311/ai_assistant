@@ -11,9 +11,11 @@ from guessing_game import q_learning
 from weather import Weather_Api
 #####################################
 
+
 class speaker:
     def __init__(self):
         self.filename = "./tmp/a.mp3"
+        self.MP = None
 
     def say(self,sentence):
         tts = gTTS(text=sentence, lang='en')
@@ -34,7 +36,7 @@ class speaker:
                 self.MP = Music_Player(playlist,maximum=10)
                 self.MP.youtube_player()
 
-        elif text == 'add music':
+        elif text == 'add music' and self.MP:
             YT.is_existed_playlist = True
             self.MP.pause_vlc()
             self.say("Please, write music\'s name")
@@ -51,36 +53,45 @@ class speaker:
                 self.delete()
                 self.MP.play_vlc()
 
-        elif text == 'resume music':
+        elif text == 'resume music' and self.MP:
             self.say("Music will be started soon again")
             self.delete()
             self.MP.play_vlc()
 
-        elif text == 'show playlist':
+        elif text == 'show playlist' and self.MP:
             self.MP.show_playlist()
 
-        elif text == 'pause music':
+        elif text == 'pause music' and self.MP:
             self.MP.pause_vlc()
             self.say("Music is paused")
             self.delete()
 
-        elif text == 'stop music':
+        elif text == 'stop music' and self.MP:
             self.MP.stop_vlc()
             self.say("Music is stopped")
             self.delete()
 
-        elif text == 'next music':
+        elif text == 'next music' and self.MP:
             self.MP.stop_vlc()
             self.say("Music will be changed in a moment")
             self.delete()
             self.MP.next_song()
-            
+
         elif text == 'weather':
-        current_weather = WA.get_current_weather()
-        self.say("Current weather is %s" % current_weather)
-        self.delete()
+            if self.MP:
+                self.MP.pause_vlc()
+                current_weather = WA.get_current_weather()
+                self.say("Current weather is %s" % current_weather)
+                self.delete()
+                self.MP.play_vlc()
+            else:
+                current_weather = WA.get_current_weather()
+                self.say("Current weather is %s" % current_weather)
+                self.delete()
 
         elif text == 'play':
+            if self.MP:
+                self.MP.pause_vlc()
             self.say("We have one game on this AI speaker. Do you want you play with me? If you want to hear how to play, please write 'how to play'")
             self.delete()
             ans = input('Please, Write yes, no or how to play.\n')
@@ -146,7 +157,7 @@ class speaker:
             self.delete()
 
         elif text == 'morning':
-            self.say("Good morning ! How are you, sir?")
+            self.say("Good morning ! How are you?")
             self.delete()
 
     def delete(self):
@@ -156,7 +167,7 @@ class speaker:
 
 if __name__ == '__main__':
     sp = speaker()
-    YT = Youtube_Player()
+    YT = Youtube_Player(maximum=3)
     WA = Weather_Api()
     start_q_table = {}
 
@@ -164,4 +175,5 @@ if __name__ == '__main__':
         text = input("write command here\n")
         if text.lower() == 'quit':
             break
+
         sp.main(text.lower())
