@@ -11,5 +11,8 @@ It is trained by reinforcement learning. (https://sammiee5311.github.io/q%20lear
 + create playlist & add music in playlist
 + change music
 
+### Weather
+Get the current weather
+
 ## todo
 + detect face expression
