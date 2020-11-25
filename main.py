@@ -157,6 +157,7 @@ class speaker:
 if __name__ == '__main__':
     sp = speaker()
     YT = Youtube_Player()
+    WA = Weather_Api()
     start_q_table = {}
 
     while True:
