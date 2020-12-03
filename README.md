@@ -16,3 +16,4 @@ Get the current weather
 
 ## todo
 + detect face expression
++ voice active
