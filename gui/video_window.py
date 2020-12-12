@@ -1,5 +1,4 @@
 import cv2
-from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import pyqtSlot, QTimer
@@ -20,16 +19,6 @@ class Video_Window(QtWidgets.QMainWindow):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_video)
         self.timer.start(40)
-
-    # def showdialog(self):
-    #     msg = QMessageBox()
-    #     msg.setIcon(QMessageBox.Information)
-    #
-    #     msg.setText("This is a message box")
-    #     msg.setInformativeText("This is additional information")
-    #     msg.setWindowTitle("MessageBox demo")
-    #     msg.setDetailedText("The details are as follows:")
-    #     msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
 
     @pyqtSlot()
     def update_video(self, is_capturing=1):
