@@ -2,11 +2,10 @@ import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5.QtWidgets import QApplication
 
 #####################################
 from main_window import Main_Window
-from video_window import Video_Window
 #####################################
 
 
@@ -22,19 +21,9 @@ class GUI(QtWidgets.QMainWindow):
         ui.hide()
         self.start_main_window()
 
-    # @pyqtSlot()
-    # def pushed_video_button(self):
-    #     ui.hide()
-    #     self.start_video_window()
-
     def start_main_window(self):
         self.window = Main_Window()
         self.window.show()
-
-    # def start_video_window(self):
-    #     self.window = Video_Window()
-    #     self.window.show()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
