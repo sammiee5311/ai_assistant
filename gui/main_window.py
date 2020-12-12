@@ -21,17 +21,17 @@ class Main_Window(QtWidgets.QMainWindow):
 
     @pyqtSlot()
     def start_youtube_music(self):
-        self.chat_output_label.setText('start_youtube_music')
+        self.chat_output_label.setText('start youtube music')
         self.chat_output_label.adjustSize()
 
     @pyqtSlot()
     def start_game(self):
-        self.chat_output_label.setText('start_game')
+        self.chat_output_label.setText('start game')
         self.chat_output_label.adjustSize()
 
     @pyqtSlot()
     def get_weather_information(self):
-        self.chat_output_label.setText('get_weather_information')
+        self.chat_output_label.setText('get weather information')
         self.chat_output_label.adjustSize()
 
     @pyqtSlot()
