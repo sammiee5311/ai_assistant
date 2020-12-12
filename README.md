@@ -1,4 +1,4 @@
-# ai_assistant (Version 0.3)
+# ai_assistant (Version 0.4)
 
 Ai assistant helps you to play music on Youtube or plays a game which is a 'guess the answer number' with you.
 
