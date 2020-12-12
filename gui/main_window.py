@@ -1,7 +1,5 @@
-from PyQt5.QtWidgets import QDialog, QMessageBox
-from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.uic import loadUi
-from PyQt5.QtCore import pyqtSlot, QTimer
+from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 
 from video_window import Video_Window
