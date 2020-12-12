@@ -17,4 +17,4 @@ Ai assistant helps you to play music on Youtube or plays a game which is a 'gues
 ## todo
 + detect face expression
 + voice active
-+ gui
++ gui (In Progress)
