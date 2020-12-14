@@ -12,6 +12,7 @@ class Video_Window(QtWidgets.QMainWindow):
         self.image = None
         self.start_video_button.clicked.connect(self.start_video)
         self.stop_video_button.clicked.connect(lambda : self.update_video(is_capturing=0))
+        self.predict_button.clicked.connect(self.start_predict)
 
     @pyqtSlot()
     def start_video(self):
@@ -27,6 +28,11 @@ class Video_Window(QtWidgets.QMainWindow):
             self.display_video(self.image)
         else:
             self.image = None
+            
+    @pyqtSlot()
+    def start_predict(self):
+        self.predict_result_label.setText('Happy')
+
 
     def display_video(self, image):
         image = cv2.resize(image, (640, 480))
