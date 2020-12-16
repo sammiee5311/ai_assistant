@@ -92,7 +92,7 @@ class Main_Window(QtWidgets.QMainWindow):
         self.chat_output_label.adjustSize()
         # self.delete()
 
-        ans = 'how to play'
+        ans = self.input.text()
 
         while ans.lower() == 'yes':
             self.signals.command.emit("The game is initialized.")
