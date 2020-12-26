@@ -9,11 +9,10 @@ from PyQt5 import QtWidgets
 class Video_Window(QtWidgets.QMainWindow):
     def __init__(self):
         super(Video_Window, self).__init__()
-        loadUi("video_window.ui", self)
+        loadUi("Design/video_window.ui", self)
         self.image = None
         self.start_video_button.clicked.connect(self.start_video)
         self.stop_video_button.clicked.connect(lambda: self.update_video)
-        self.predict_button.clicked.connect(self.start_predict)
 
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_Escape:
@@ -30,10 +29,6 @@ class Video_Window(QtWidgets.QMainWindow):
     def update_video(self):
         ret, self.image = self.capture.read()
         self.display_video(self.image)
-
-    @pyqtSlot()
-    def start_predict(self):
-        self.predict_result_label.setText('Happy')
 
     def display_video(self, image):
         image = cv2.resize(image, (640, 480))
