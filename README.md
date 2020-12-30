@@ -16,4 +16,3 @@ Ai assistant helps you to play music on Youtube or plays a game which is a 'gues
 
 ## todo
 + voice active
-+ ~~gui~~
